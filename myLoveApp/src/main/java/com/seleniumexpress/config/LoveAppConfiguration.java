@@ -6,6 +6,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRegistration;
 
 public class LoveAppConfiguration implements WebApplicationInitializer {
 
@@ -19,7 +20,11 @@ public class LoveAppConfiguration implements WebApplicationInitializer {
 		DispatcherServlet dispatcherServlet = new DispatcherServlet();
 		
 		// Register the dispatcher servlet to servlet context object
-		servletContext.addServlet("myDispatcherServlet", dispatcherServlet);
+		ServletRegistration.Dynamic myCustomServlet =  servletContext.addServlet("myDispatcherServlet", dispatcherServlet);
+		
+		myCustomServlet.setLoadOnStartup(1);
+		myCustomServlet.addMapping("/love.com/*");
+		
 		webApplicationContext.close();
 	}
 
