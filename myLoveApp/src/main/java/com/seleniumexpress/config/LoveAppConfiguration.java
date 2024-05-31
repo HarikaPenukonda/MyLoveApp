@@ -17,7 +17,7 @@ public class LoveAppConfiguration implements WebApplicationInitializer {
 		webApplicationContext.setConfigLocations("classpath:application-configuration.xml");
 		
 		// creating dispatcher servlet object
-		DispatcherServlet dispatcherServlet = new DispatcherServlet();
+		DispatcherServlet dispatcherServlet = new DispatcherServlet(webApplicationContext);
 		
 		// Register the dispatcher servlet to servlet context object
 		ServletRegistration.Dynamic myCustomServlet =  servletContext.addServlet("myDispatcherServlet", dispatcherServlet);
