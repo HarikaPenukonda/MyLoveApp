@@ -18,7 +18,7 @@ public class LAConfig extends AbstractAnnotationConfigDispatcherServletInitializ
 
 	@Override
 	protected String[] getServletMappings() {
-		String arr[] = {"/love.com"};
+		String arr[] = {"/love.com/*"};
 		return arr;
 	}
 
